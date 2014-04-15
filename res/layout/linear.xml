@@ -6,19 +6,19 @@
               android:layout_weight="1"
               android:background="@color/black"
               android:orientation="vertical" tools:context=".MyActivity">
-        <Button
-                style="@style/BigButtons"
-                 android:text="@string/buttonfirst"
-                 android:onClick="clickFirst"/>
-        <Button
-                style="@style/BigButtons"
-                android:text="@string/buttonsecond"
-                android:onClick="clickSecond"/>
+    <Button
+            style="@style/BigButtons"
+            android:text="@string/buttonfirst"
+            android:onClick="clickFirst"/>
+    <Button
+            style="@style/BigButtons"
+            android:text="@string/buttonsecond"
+            android:onClick="clickSecond"/>
 
-        <Button
-                style="@style/BigButtons"
-                android:text="@string/buttonthird"
-                android:onClick="clickThird"/>
+    <Button
+            style="@style/BigButtons"
+            android:text="@string/buttonthird"
+            android:onClick="clickThird"/>
 
-    
+
 </LinearLayout>
