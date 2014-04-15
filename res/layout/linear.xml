@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_weight="1"
+              android:background="#FF000000"
+              android:orientation="vertical" tools:context=".MyActivity">
+        <Button
+                style="@style/BigButtons"
+                 android:text="@string/buttonfirst"
+                 android:onClick="clickFirst"/>
+        <Button
+                style="@style/BigButtons"
+                android:text="@string/buttonsecond"
+                android:onClick="clickSecond"/>
+
+        <Button
+                style="@style/BigButtons"
+                android:text="@string/buttonthird"
+                android:onClick="clickThird"/>
+
+    
+</LinearLayout>
