@@ -17,14 +17,14 @@ public class MyActivity extends Activity {
     }
 
     public void clickFirst(View view) {
-        Toast.makeText(this, "Click on first button", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Click on first button", Toast.LENGTH_SHORT).show();
     }
 
     public void clickSecond(View view) {
-        Toast.makeText(this, "Click on second button", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Click on second button", Toast.LENGTH_SHORT).show();
     }
 
     public void clickThird(View view) {
-        Toast.makeText(this, "Click on third button", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Click on third button", Toast.LENGTH_SHORT).show();
     }
 }
