@@ -8,16 +8,16 @@
               android:orientation="vertical" tools:context=".MyActivity">
     <Button
             style="@style/BigButtons"
-            android:text="@string/buttonfirst"
-            android:onClick="clickFirst"/>
+            android:text="@string/buttonfirst_navigation"
+            android:onClick="clickThird"/>
     <Button
             style="@style/BigButtons"
-            android:text="@string/buttonsecond"
-            android:onClick="clickSecond"/>
+            android:text="@string/buttonsecond_navigation"
+            android:onClick="clickThird"/>
 
     <Button
             style="@style/BigButtons"
-            android:text="@string/buttonthird"
+            android:text="@string/buttonthird_navigation"
             android:onClick="clickThird"/>
 
 

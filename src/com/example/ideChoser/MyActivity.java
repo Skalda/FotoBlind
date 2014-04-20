@@ -12,19 +12,25 @@ public class MyActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.linear);
+        setContentView(R.layout.position);
+        Toast.makeText(this, "Zarovnání obličeje", Toast.LENGTH_SHORT).show();
         //getActionBar().hide();
     }
 
     public void clickFirst(View view) {
-        Toast.makeText(this, "Click on first button", Toast.LENGTH_SHORT).show();
+
+        Toast.makeText(this, "Druh fotografie", Toast.LENGTH_SHORT).show();
+        setContentView(R.layout.face_size);
     }
 
     public void clickSecond(View view) {
-        Toast.makeText(this, "Click on second button", Toast.LENGTH_SHORT).show();
+
+        Toast.makeText(this, "Navigace", Toast.LENGTH_SHORT).show();
+        setContentView(R.layout.navigation);
     }
 
     public void clickThird(View view) {
-        Toast.makeText(this, "Click on third button", Toast.LENGTH_SHORT).show();
+
+        //Toast.makeText(this, "Click on third button", Toast.LENGTH_SHORT).show();
     }
 }

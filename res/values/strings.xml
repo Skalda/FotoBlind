@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">FotoBlind</string>
-    <string name="buttonfirst">first</string>
-    <string name="buttonsecond">second</string>
-    <string name="buttonthird">third</string>
+    <string name="buttonfirst_position">Zlatý řez v pravo</string>
+    <string name="buttonsecond_position">Na střed</string>
+    <string name="buttonthird_position">Zlatý řez v levo</string>
+    <string name="buttonfirst_navigation">Hlas</string>
+    <string name="buttonsecond_navigation">Zvuk</string>
+    <string name="buttonthird_navigation">Vibrace</string>
+    <string name="buttonfirst_face">Pasovka</string>
+    <string name="buttonsecond_face">Polocelek</string>
+    <string name="buttonthird_face">Volná bez změny velikosti obličeje</string>
 </resources>
