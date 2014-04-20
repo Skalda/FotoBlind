@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+import android.content.Intent;
+import android.content.Context;
 
-public class MyActivity extends Activity {
+public class Position extends Activity {
     /**
      * Called when the activity is first created.
      */
@@ -18,9 +20,9 @@ public class MyActivity extends Activity {
     }
 
     public void clickFirst(View view) {
-
-        Toast.makeText(this, "Druh fotografie", Toast.LENGTH_SHORT).show();
-        setContentView(R.layout.face_size);
+        final Context context = this;
+        Intent intent = new Intent(context, Face.class);
+        startActivity(intent);
     }
 
     public void clickSecond(View view) {
@@ -30,7 +32,7 @@ public class MyActivity extends Activity {
     }
 
     public void clickThird(View view) {
-
+        // setContentView(R.layout.final_landscape);
         //Toast.makeText(this, "Click on third button", Toast.LENGTH_SHORT).show();
     }
 }
