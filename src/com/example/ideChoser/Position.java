@@ -1,6 +1,9 @@
 package com.example.ideChoser;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.hardware.Camera;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -37,4 +40,8 @@ public class Position extends Activity {
         // Intent intent = new Intent(this, TVOJE_ACTIVITA.class);
         //startActivity(intent);
     }
+
+
+
+
 }
