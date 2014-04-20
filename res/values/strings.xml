@@ -10,4 +10,9 @@
     <string name="buttonfirst_face">Pasovka</string>
     <string name="buttonsecond_face">Polocelek</string>
     <string name="buttonthird_face">Volná bez změny velikosti obličeje</string>
+    <string name="final_delete">smazat</string>
+    <string name="final_facebook">facebook</string>
+    <string name="final_sdílet">sdílet</string>
+    <string name="final_twitter">twitter</string>
+    <string name="final_instagram">instagram</string>
 </resources>

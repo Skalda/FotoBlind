@@ -1,36 +1,39 @@
 package com.example.ideChoser;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-public class MyActivity extends Activity {
+public class Navigation extends Activity {
     /**
      * Called when the activity is first created.
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.position);
-        Toast.makeText(this, "Zarovnání obličeje", Toast.LENGTH_SHORT).show();
+        setContentView(R.layout.navigation);
+        Toast.makeText(this, "Navigace", Toast.LENGTH_SHORT).show();
         //getActionBar().hide();
     }
 
     public void clickFirst(View view) {
 
-        Toast.makeText(this, "Druh fotografie", Toast.LENGTH_SHORT).show();
-        setContentView(R.layout.face_size);
+        Intent intent = new Intent(this, Face.class);
+        startActivity(intent);
     }
 
     public void clickSecond(View view) {
 
-        Toast.makeText(this, "Navigace", Toast.LENGTH_SHORT).show();
-        setContentView(R.layout.navigation);
+        Intent intent = new Intent(this, Navigation.class);
+        startActivity(intent);
     }
 
     public void clickThird(View view) {
+        //priraveno dopln svoji activitu
 
-        //Toast.makeText(this, "Click on third button", Toast.LENGTH_SHORT).show();
+        // Intent intent = new Intent(this, TVOJE_ACTIVITA.class);
+        //startActivity(intent);
     }
 }
