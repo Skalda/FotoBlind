@@ -33,7 +33,7 @@ public class Navigation extends Activity {
     public void clickThird(View view) {
         //priraveno dopln svoji activitu
 
-        // Intent intent = new Intent(this, TVOJE_ACTIVITA.class);
-        //startActivity(intent);
+        Intent intent = new Intent(this, CameraActivity.class);
+        startActivity(intent);
     }
 }
