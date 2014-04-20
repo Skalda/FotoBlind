@@ -1,6 +1,9 @@
 package com.example.ideChoser;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.hardware.Camera;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -33,4 +36,8 @@ public class MyActivity extends Activity {
 
         //Toast.makeText(this, "Click on third button", Toast.LENGTH_SHORT).show();
     }
+
+
+
+
 }
