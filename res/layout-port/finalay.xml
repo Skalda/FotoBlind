@@ -16,12 +16,12 @@
                   tools:context=".MyActivity">
         <Button
                 style="@style/BigButtons"
-                android:text="@string/buttonfirst_face"
-                android:onClick="clickSecond"/>
+                android:text="nahled"
+                android:onClick="clickPreview"/>
         <Button
                 style="@style/BigButtons"
-                android:text="@string/buttonsecond_face"
-                android:onClick="clickSecond"/>
+                android:text="@string/final_delete"
+                android:onClick="clickDelete"/>
 
     </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -33,12 +33,12 @@
                   android:orientation="horizontal" tools:context=".MyActivity">
         <Button
                 style="@style/BigButtons"
-                android:text="@string/buttonfirst_face"
-                android:onClick="clickSecond"/>
+                android:text="@string/final_facebook"
+                android:onClick="clickFacebook"/>
         <Button
                 style="@style/BigButtons"
-                android:text="@string/buttonsecond_face"
-                android:onClick="clickSecond"/>
+                android:text="@string/final_sdílet"
+                android:onClick="clickShare"/>
     </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   xmlns:tools="http://schemas.android.com/tools"
@@ -49,12 +49,12 @@
                   android:orientation="horizontal" tools:context=".MyActivity">
         <Button
                 style="@style/BigButtons"
-                android:text="@string/buttonfirst_face"
-                android:onClick="clickSecond"/>
+                android:text="@string/final_twitter"
+                android:onClick="clickTwitter"/>
         <Button
                 style="@style/BigButtons"
-                android:text="@string/buttonsecond_face"
-                android:onClick="clickSecond"/>
+                android:text="@string/final_instagram"
+                android:onClick="clickInstagram"/>
     </LinearLayout>
 
 </LinearLayout>

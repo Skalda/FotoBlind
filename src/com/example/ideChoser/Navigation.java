@@ -1,11 +1,10 @@
 package com.example.ideChoser;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-import android.content.Intent;
-import android.content.Context;
 
 public class Navigation extends Activity {
     /**
@@ -32,7 +31,9 @@ public class Navigation extends Activity {
     }
 
     public void clickThird(View view) {
-        //  setContentView(R.layout.final_landscape);
-        //Toast.makeText(this, "Click on third button", Toast.LENGTH_SHORT).show();
+        //priraveno dopln svoji activitu
+
+        // Intent intent = new Intent(this, TVOJE_ACTIVITA.class);
+        //startActivity(intent);
     }
 }

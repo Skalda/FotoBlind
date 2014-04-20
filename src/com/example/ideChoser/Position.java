@@ -32,7 +32,9 @@ public class Position extends Activity {
     }
 
     public void clickThird(View view) {
-        // setContentView(R.layout.final_landscape);
-        //Toast.makeText(this, "Click on third button", Toast.LENGTH_SHORT).show();
+        //priraveno dopln svoji activitu
+
+        // Intent intent = new Intent(this, TVOJE_ACTIVITA.class);
+        //startActivity(intent);
     }
 }
