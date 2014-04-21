@@ -118,6 +118,9 @@ public class CameraActivity extends Activity {
             }
 
             Log.d(TAG, "OK");
+
+            Intent intent = new Intent(getBaseContext(), Final.class);
+            startActivity(intent);
         }
     };
 

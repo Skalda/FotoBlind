@@ -2,13 +2,10 @@ package com.example.ideChoser;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.pm.PackageManager;
-import android.hardware.Camera;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-import android.content.Intent;
-import android.content.Context;
 
 public class Position extends Activity {
     /**
