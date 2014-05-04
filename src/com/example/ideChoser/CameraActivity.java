@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -26,23 +27,22 @@ import java.util.Date;
 public class CameraActivity extends Activity {
 
     private Camera mCamera;
-    private CameraPreview mPreview;
     private static final String TAG = "CameraActivity";
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.camera);
 
-        // Create an instance of Camera
-        mCamera = getCameraInstance();
+        boolean initialized = initialize(this);
+
+        if(!initialized){
+            this.finish();
+        }
 
         // Create our Preview view and set it as the content of our activity.
-        mPreview = new CameraPreview(this, mCamera);
         FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
-        preview.addView(mPreview);
+        preview.addView(new CameraPreview(this));
 
         // Add a listener to the Capture button
         Button captureButton = (Button) findViewById(R.id.button_capture);
@@ -56,19 +56,52 @@ public class CameraActivity extends Activity {
                     }
                 }
         );
+
+        /*Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
+            @Override
+            public void uncaughtException(Thread thread, Throwable ex) {
+                System.err.println(ex);
+                ex.printStackTrace(System.err);
+            }
+        });*/
+
+    }
+
+    private boolean initialize(Context context){
+
+        boolean hasCamera = checkCameraHardware(context);
+
+        if(!hasCamera){
+            Log.d(TAG, "Device does not have camera.");
+            Toast.makeText(context, "Device does not have camera.", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        File imageDir = StaticData.IMAGE_DIRECTORY;
+
+        if(!imageDir.exists() && !imageDir.mkdir()){
+            Log.d(TAG, "Can't create directory to save image.");
+            Toast.makeText(context, "Can't create directory to save image.", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        return true;
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
-        releaseCamera();              // release the camera immediately on pause event
+    protected void onStart() {
+        System.out.println("onStart");
+        super.onStart();
+        // Create an instance of Camera
+        mCamera = CameraSingleton.GetInstance();
     }
 
-    private void releaseCamera(){
-        if (mCamera != null){
-            mCamera.release();        // release the camera for other applications
-            mCamera = null;
-        }
+    @Override
+    protected void onStop() {
+        System.out.println("onStop");
+        super.onStop();
+
+        CameraSingleton.ReleaseInstance();
     }
 
     /** Check if this device has a camera */
@@ -81,20 +114,6 @@ public class CameraActivity extends Activity {
             return false;
         }
     }
-
-    /** A safe way to get an instance of the Camera object. */
-    public static Camera getCameraInstance(){
-        Camera c = null;
-        try {
-            c = Camera.open(); // attempt to get a Camera instance
-        }
-        catch (Exception e){
-            // Camera is not available (in use or does not exist)
-        }
-        return c; // returns null if camera is unavailable
-    }
-
-
 
     private Camera.PictureCallback mPicture = new Camera.PictureCallback() {
 
@@ -137,23 +156,13 @@ public class CameraActivity extends Activity {
         // To be safe, you should check that the SDCard is mounted
         // using Environment.getExternalStorageState() before doing this.
 
-        File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_PICTURES), "MyCameraApp");
-        // This location works best if you want the created images to be shared
-        // between applications and persist after your app has been uninstalled.
-
-        // Create the storage directory if it does not exist
-        if (! mediaStorageDir.exists()){
-            if (! mediaStorageDir.mkdirs()){
-                Log.d("MyCameraApp", "failed to create directory");
-                return null;
-            }
-        }
+        File mediaStorageDir = StaticData.IMAGE_DIRECTORY;
 
         // Create a media file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        File mediaFile;
-        if (type == MEDIA_TYPE_IMAGE){
+        File mediaFile = new File(mediaStorageDir.getPath() + File.separator + "IMG_"+ timeStamp + ".jpg");
+
+        /*if (type == MEDIA_TYPE_IMAGE){
             mediaFile = new File(mediaStorageDir.getPath() + File.separator +
                     "IMG_"+ timeStamp + ".jpg");
         } else if(type == MEDIA_TYPE_VIDEO) {
@@ -161,7 +170,7 @@ public class CameraActivity extends Activity {
                     "VID_"+ timeStamp + ".mp4");
         } else {
             return null;
-        }
+        }*/
 
         return mediaFile;
     }
