@@ -25,8 +25,71 @@ import java.util.Date;
  */
 public class CameraActivity extends Activity {
 
-    private Camera mCamera;
+    public static final int MEDIA_TYPE_IMAGE = 1;
+    public static final int MEDIA_TYPE_VIDEO = 2;
     private static final String TAG = "CameraActivity";
+    private Camera.PictureCallback mPicture = new Camera.PictureCallback() {
+
+        @Override
+        public void onPictureTaken(byte[] data, Camera camera) {
+
+            File pictureFile = getOutputMediaFile(MEDIA_TYPE_IMAGE);
+            if (pictureFile == null) {
+                Log.d(TAG, "Error creating media file, check storage permissions");
+                return;
+            }
+
+            try {
+                FileOutputStream fos = new FileOutputStream(pictureFile);
+                fos.write(data);
+                fos.close();
+            } catch (FileNotFoundException e) {
+                Log.d(TAG, "File not found: " + e.getMessage());
+            } catch (IOException e) {
+                Log.d(TAG, "Error accessing file: " + e.getMessage());
+            }
+
+            Log.d(TAG, "OK");
+
+            Intent intent = new Intent(getBaseContext(), Final.class);
+            startActivity(intent);
+        }
+    };
+    private Camera mCamera;
+
+    /**
+     * Create a file Uri for saving an image or video
+     */
+    private static Uri getOutputMediaFileUri(int type) {
+        return Uri.fromFile(getOutputMediaFile(type));
+    }
+
+    /**
+     * Create a File for saving an image or video
+     */
+    private static File getOutputMediaFile(int type) {
+        // To be safe, you should check that the SDCard is mounted
+        // using Environment.getExternalStorageState() before doing this.
+
+        File mediaStorageDir = StaticData.IMAGE_DIRECTORY;
+
+        // Create a media file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        File mediaFile = new File(mediaStorageDir.getPath() + File.separator + "IMG_" + timeStamp + ".jpg");
+        StaticData.IMAGE_FILE = mediaFile;
+
+        /*if (type == MEDIA_TYPE_IMAGE){
+            mediaFile = new File(mediaStorageDir.getPath() + File.separator +
+                    "IMG_"+ timeStamp + ".jpg");
+        } else if(type == MEDIA_TYPE_VIDEO) {
+            mediaFile = new File(mediaStorageDir.getPath() + File.separator +
+                    "VID_"+ timeStamp + ".mp4");
+        } else {
+            return null;
+        }*/
+
+        return mediaFile;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,7 +98,7 @@ public class CameraActivity extends Activity {
 
         boolean initialized = initialize(this);
 
-        if(!initialized){
+        if (!initialized) {
             this.finish();
         }
 
@@ -66,11 +129,11 @@ public class CameraActivity extends Activity {
 
     }
 
-    private boolean initialize(Context context){
+    private boolean initialize(Context context) {
 
         boolean hasCamera = checkCameraHardware(context);
 
-        if(!hasCamera){
+        if (!hasCamera) {
             Log.d(TAG, "Device does not have camera.");
             Toast.makeText(context, "Device does not have camera.", Toast.LENGTH_LONG).show();
             return false;
@@ -78,7 +141,7 @@ public class CameraActivity extends Activity {
 
         File imageDir = StaticData.IMAGE_DIRECTORY;
 
-        if(!imageDir.exists() && !imageDir.mkdir()){
+        if (!imageDir.exists() && !imageDir.mkdir()) {
             Log.d(TAG, "Can't create directory to save image.");
             Toast.makeText(context, "Can't create directory to save image.", Toast.LENGTH_LONG).show();
             return false;
@@ -103,75 +166,14 @@ public class CameraActivity extends Activity {
         CameraSingleton.ReleaseInstance();
     }
 
-    /** Check if this device has a camera */
+    /**
+     * Check if this device has a camera
+     */
     private boolean checkCameraHardware(Context context) {
         // this device has a camera
 // no camera on this device
         return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA);
     }
-
-    private Camera.PictureCallback mPicture = new Camera.PictureCallback() {
-
-        @Override
-        public void onPictureTaken(byte[] data, Camera camera) {
-
-            File pictureFile = getOutputMediaFile(MEDIA_TYPE_IMAGE);
-            if (pictureFile == null){
-                Log.d(TAG, "Error creating media file, check storage permissions");
-                return;
-            }
-
-            try {
-                FileOutputStream fos = new FileOutputStream(pictureFile);
-                fos.write(data);
-                fos.close();
-            } catch (FileNotFoundException e) {
-                Log.d(TAG, "File not found: " + e.getMessage());
-            } catch (IOException e) {
-                Log.d(TAG, "Error accessing file: " + e.getMessage());
-            }
-
-            Log.d(TAG, "OK");
-
-            Intent intent = new Intent(getBaseContext(), Final.class);
-            startActivity(intent);
-        }
-    };
-
-    public static final int MEDIA_TYPE_IMAGE = 1;
-    public static final int MEDIA_TYPE_VIDEO = 2;
-
-    /** Create a file Uri for saving an image or video */
-    private static Uri getOutputMediaFileUri(int type){
-        return Uri.fromFile(getOutputMediaFile(type));
-    }
-
-    /** Create a File for saving an image or video */
-    private static File getOutputMediaFile(int type){
-        // To be safe, you should check that the SDCard is mounted
-        // using Environment.getExternalStorageState() before doing this.
-
-        File mediaStorageDir = StaticData.IMAGE_DIRECTORY;
-
-        // Create a media file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        File mediaFile = new File(mediaStorageDir.getPath() + File.separator + "IMG_"+ timeStamp + ".jpg");
-        StaticData.IMAGE_FILE = mediaFile;
-
-        /*if (type == MEDIA_TYPE_IMAGE){
-            mediaFile = new File(mediaStorageDir.getPath() + File.separator +
-                    "IMG_"+ timeStamp + ".jpg");
-        } else if(type == MEDIA_TYPE_VIDEO) {
-            mediaFile = new File(mediaStorageDir.getPath() + File.separator +
-                    "VID_"+ timeStamp + ".mp4");
-        } else {
-            return null;
-        }*/
-
-        return mediaFile;
-    }
-
-
 
 
 }

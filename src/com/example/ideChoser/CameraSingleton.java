@@ -9,16 +9,16 @@ public class CameraSingleton {
 
     private static Camera instance;
 
-    public static Camera GetInstance(){
-        if(instance == null){
+    public static Camera GetInstance() {
+        if (instance == null) {
             instance = Camera.open();
         }
 
         return instance;
     }
 
-    public static void ReleaseInstance(){
-        if(instance != null){
+    public static void ReleaseInstance() {
+        if (instance != null) {
             instance.release();
             instance = null;
         }

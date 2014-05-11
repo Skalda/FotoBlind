@@ -39,6 +39,4 @@ public class Position extends Activity {
     }
 
 
-
-
 }
