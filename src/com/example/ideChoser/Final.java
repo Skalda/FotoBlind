@@ -1,9 +1,8 @@
 package com.example.ideChoser;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -25,7 +24,8 @@ public class Final extends Activity {
 
     public void clickPreview(View view) {
 
-        //add code here
+        Intent intent = new Intent(this, Preview.class);
+        startActivity(intent);
     }
 
     public void clickFacebook(View view) {

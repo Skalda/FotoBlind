@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -40,7 +39,7 @@ public class CameraActivity extends Activity {
             this.finish();
         }
 
-        // Create our Preview view and set it as the content of our activity.
+        // Create our com.example.ideChoser.Preview view and set it as the content of our activity.
         FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
         preview.addView(new CameraPreview(this));
 
@@ -106,13 +105,9 @@ public class CameraActivity extends Activity {
 
     /** Check if this device has a camera */
     private boolean checkCameraHardware(Context context) {
-        if (context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)){
-            // this device has a camera
-            return true;
-        } else {
-            // no camera on this device
-            return false;
-        }
+        // this device has a camera
+// no camera on this device
+        return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA);
     }
 
     private Camera.PictureCallback mPicture = new Camera.PictureCallback() {

@@ -43,5 +43,8 @@
             <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
+        <activity android:name=".Preview"
+                  android:label="nahled"
+                  android:theme="@android:style/Theme.Holo.Light.NoActionBar"/>
     </application>
 </manifest>
