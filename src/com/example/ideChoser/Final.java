@@ -38,12 +38,14 @@ public class Final extends Activity {
 
     public void clickFacebook(View view) {
         share("facebook.katana", StaticData.IMAGE_FILE.getPath().toString());
-        //add code here
     }
 
     public void clickDelete(View view) {
-
-        //add code here
+        // System.out.println("Mazu");
+        // System.out.println(StaticData.IMAGE_FILE.delete());
+        StaticData.IMAGE_FILE.delete();
+        Intent intent = new Intent(getBaseContext(), CameraActivity.class);
+        startActivity(intent);
     }
 
     public void clickShare(View view) {
@@ -55,18 +57,15 @@ public class Final extends Activity {
         Uri uri = Uri.fromFile(StaticData.IMAGE_FILE);
         shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
         startActivity(Intent.createChooser(shareIntent, "Sdílet na"));
-        //add code here
     }
 
     public void clickTwitter(View view) {
         share("com.twitter.android", StaticData.IMAGE_FILE.getPath().toString());
-        //add code here
     }
 
     public void clickInstagram(View view) {
 
         share("instagram", StaticData.IMAGE_FILE.getPath().toString());
-        //add code here
     }
 
     /**
@@ -100,7 +99,7 @@ public class Final extends Activity {
 //                        System.out.println(info.activityInfo.name.toLowerCase());
                     }
                 }
-                Intent chooserIntent = Intent.createChooser(targetedShareIntents.remove(0), "Select app to share");
+                Intent chooserIntent = Intent.createChooser(targetedShareIntents.remove(0), "Vyber applikaci");
                 chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[]{}));
                 startActivity(chooserIntent);
             }

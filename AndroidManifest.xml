@@ -15,7 +15,7 @@
 
     <application android:label="@string/app_name" android:icon="@drawable/ic_launcher">
         <activity android:name=".Position"
-                  android:label="@string/app_name"
+                  android:label="@string/PositionActivityLabel"
                   android:theme="@android:style/Theme.Holo.Light.NoActionBar"
                 >
             <intent-filter>
@@ -24,18 +24,18 @@
             </intent-filter>
         </activity>
         <activity
-                android:label="@string/app_name"
+                android:label="@string/NavigationActivityLabel"
                 android:name=".Navigation"
                 android:theme="@android:style/Theme.Holo.Light.NoActionBar">
         </activity>
         <activity android:name=".Face"
-                  android:label="@string/app_name"
+                  android:label="@string/FaceActivityLabel"
                   android:theme="@android:style/Theme.Holo.Light.NoActionBar"/>
         <activity android:name=".Final"
-                  android:label="@string/app_name"
+                  android:label="@string/FinalActivityLabel"
                   android:theme="@android:style/Theme.Holo.Light.NoActionBar"/>
         <activity android:name=".CameraActivity"
-                  android:label="@string/app_name"
+                  android:label="@string/CameraActivityLable"
                   android:theme="@android:style/Theme.Holo.Light.NoActionBar">
 
             <!--<intent-filter>-->
@@ -44,7 +44,7 @@
             <!--</intent-filter>-->
         </activity>
         <activity android:name=".Preview"
-                  android:label="nahled"
+                  android:label="@string/PreviewActivityLable"
                   android:theme="@android:style/Theme.Holo.Light.NoActionBar"/>
     </application>
 </manifest>

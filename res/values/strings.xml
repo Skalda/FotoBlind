@@ -17,4 +17,10 @@
     <string name="final_instagram">instagram</string>
     <string name="NahledBtbDesription">nahled</string>
     <string name="previewImgDescription">Velky nahled</string>
+    <string name="PreviewActivityLable">nahled</string>
+    <string name="CameraActivityLable">Fotoaparat</string>
+    <string name="FinalActivityLabel">Vyber cinnost</string>
+    <string name="FaceActivityLabel">Druh fotky</string>
+    <string name="NavigationActivityLabel">Navigace</string>
+    <string name="PositionActivityLabel">Zarovnání obličeje</string>
 </resources>
