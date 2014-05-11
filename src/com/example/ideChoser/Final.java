@@ -32,8 +32,15 @@ public class Final extends Activity {
 
     public void clickPreview(View view) {
 
+        //Vlastní náhled
         Intent intent = new Intent(this, Preview.class);
         startActivity(intent);
+        //alternativa použit nějakou exitující galerii
+//        Intent intent = new Intent();
+//        intent.setAction(Intent.ACTION_VIEW);
+//
+//        intent.setDataAndType(Uri.fromFile(StaticData.IMAGE_FILE), "image/*");
+//        startActivity(intent);
     }
 
     public void clickFacebook(View view) {
