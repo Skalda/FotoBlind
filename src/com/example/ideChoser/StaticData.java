@@ -10,4 +10,5 @@ import java.io.File;
 public class StaticData {
     public static final String APP_NAME = "FotoBlind";
     public static final File IMAGE_DIRECTORY = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM),APP_NAME);
+    public static File IMAGE_FILE = null;
 }
