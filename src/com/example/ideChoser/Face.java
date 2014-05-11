@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import java.sql.SQLOutput;
+
+//TODO: predelat na button listenery nebo rozdelit on clik eventy
 public class Face extends Activity {
     /**
      * Called when the activity is first created.
@@ -20,8 +23,10 @@ public class Face extends Activity {
 
     public void clickFirst(View view) {
 
+
         Intent intent = new Intent(this, Face.class);
         startActivity(intent);
+
     }
 
     public void clickSecond(View view) {

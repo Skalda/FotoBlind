@@ -9,16 +9,19 @@
     <Button
             style="@style/BigButtons"
             android:text="@string/buttonfirst_face"
-            android:onClick="clickSecond"/>
+            android:onClick="clickSecond"
+            android:id="@+id/pasovkaBtn"/>
     <Button
             style="@style/BigButtons"
             android:text="@string/buttonsecond_face"
-            android:onClick="clickSecond"/>
+            android:onClick="clickSecond"
+            android:id="@+id/polocelekBtn"/>
 
     <Button
             style="@style/BigButtons"
             android:text="@string/buttonthird_face"
-            android:onClick="clickSecond"/>
+            android:onClick="clickSecond"
+            android:id="@+id/volnaBtn"/>
 
 
 </LinearLayout>
