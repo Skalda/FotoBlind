@@ -20,22 +20,26 @@ public class Position extends Activity {
     }
 
     public void clickFirst(View view) {
+        StaticData.FACE_POSITION = 1;
+        nextScreen();
+    }
+
+    public void nextScreen() {
         final Context context = this;
         Intent intent = new Intent(context, Face.class);
         startActivity(intent);
     }
 
-    public void clickSecond(View view) {
+    public void clickLeft(View view) {
 
-        Toast.makeText(this, "Navigace", Toast.LENGTH_SHORT).show();
-        setContentView(R.layout.navigation);
+        StaticData.FACE_POSITION = 2;
+        nextScreen();
     }
 
-    public void clickThird(View view) {
-        //priraveno dopln svoji activitu
+    public void clickCenter(View view) {
 
-        // Intent intent = new Intent(this, TVOJE_ACTIVITA.class);
-        //startActivity(intent);
+        StaticData.FACE_POSITION = 3;
+        nextScreen();
     }
 
 

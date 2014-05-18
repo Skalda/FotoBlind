@@ -14,25 +14,28 @@ public class Navigation extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation);
-        Toast.makeText(this, "Navigace", Toast.LENGTH_SHORT).show();
+        //  Toast.makeText(this, "Navigace", Toast.LENGTH_SHORT).show();
         //getActionBar().hide();
     }
 
-    public void clickFirst(View view) {
+    public void clickSound(View view) {
 
-        Intent intent = new Intent(this, Face.class);
-        startActivity(intent);
+        StaticData.NAVIGATION = 2;
+        nextScreen();
     }
 
-    public void clickSecond(View view) {
+    public void clickVibration(View view) {
 
-        Intent intent = new Intent(this, Navigation.class);
-        startActivity(intent);
+        StaticData.NAVIGATION = 3;
+        nextScreen();
     }
 
     public void clickThird(View view) {
-        //priraveno dopln svoji activitu
+        StaticData.NAVIGATION = 1;
+        nextScreen();
+    }
 
+    public void nextScreen() {
         Intent intent = new Intent(this, CameraActivity.class);
         startActivity(intent);
     }

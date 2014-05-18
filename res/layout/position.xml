@@ -13,12 +13,12 @@
     <Button
             style="@style/BigButtons"
             android:text="@string/buttonsecond_position"
-            android:onClick="clickFirst"/>
+            android:onClick="clickCenter"/>
 
     <Button
             style="@style/BigButtons"
             android:text="@string/buttonthird_position"
-            android:onClick="clickFirst"/>
+            android:onClick="clickLeft"/>
 
 
 </LinearLayout>

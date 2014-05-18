@@ -13,12 +13,12 @@
     <Button
             style="@style/BigButtons"
             android:text="@string/buttonsecond_navigation"
-            android:onClick="clickThird"/>
+            android:onClick="clickSound"/>
 
     <Button
             style="@style/BigButtons"
             android:text="@string/buttonthird_navigation"
-            android:onClick="clickThird"/>
+            android:onClick="clickVibration"/>
 
 
 </LinearLayout>

@@ -14,13 +14,13 @@
     <Button
             style="@style/BigButtons"
             android:text="@string/buttonsecond_face"
-            android:onClick="clickSecond"
+            android:onClick="clickPolocelek"
             android:id="@+id/polocelekBtn"/>
 
     <Button
             style="@style/BigButtons"
             android:text="@string/buttonthird_face"
-            android:onClick="clickSecond"
+            android:onClick="clickFreestyle"
             android:id="@+id/volnaBtn"/>
 
 
