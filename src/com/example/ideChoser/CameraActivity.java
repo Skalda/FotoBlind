@@ -158,6 +158,19 @@ public class CameraActivity extends Activity {
         // Create an instance of Camera
         mCamera = CameraSingleton.GetInstance();
         this.setCameraDisplayOrientation(this, 1, mCamera);
+        Camera.Parameters camParameters = mCamera.getParameters();
+        camParameters.setFocusMode("continuous-picture");
+        Camera.Size max = camParameters.getSupportedPictureSizes().get(0);
+        int maxsize = 0;
+        for (Camera.Size s : camParameters.getSupportedPictureSizes()){
+            int tmpSize = s.height * s.width;
+            if(tmpSize > maxsize){
+                maxsize = tmpSize;
+                max = s;
+            }
+        }
+        camParameters.setPictureSize(max.width, max.height);
+        mCamera.setParameters(camParameters);
     }
 
     @Override
