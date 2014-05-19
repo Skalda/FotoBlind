@@ -38,6 +38,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
             mCamera = CameraSingleton.GetInstance();
             mCamera.setPreviewDisplay(holder);
             mCamera.startPreview();
+            startFaceDetection(); // start face detection feature
         } catch (IOException e) {
             Log.d(TAG, "Error setting camera preview: " + e.getMessage());
         }
@@ -70,9 +71,22 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         try {
             mCamera.setPreviewDisplay(mHolder);
             mCamera.startPreview();
-
+            startFaceDetection(); // start face detection feature
         } catch (Exception e) {
             Log.d(TAG, "Error starting camera preview: " + e.getMessage());
+        }
+
+
+    }
+
+    public void startFaceDetection(){
+        // Try starting Face Detection
+        Camera.Parameters params = mCamera.getParameters();
+        Log.d(TAG, "max " + params.getMaxNumDetectedFaces());
+        // start face detection only *after* preview has started
+        if (params.getMaxNumDetectedFaces() > 0){
+            // camera supports face detection, so can start it:
+            mCamera.startFaceDetection();
         }
     }
 }

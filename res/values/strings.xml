@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">FotoBlind</string>
-    <string name="buttonfirst_position">Zlatý řez v pravo</string>
-    <string name="buttonsecond_position">Na střed</string>
-    <string name="buttonthird_position">Zlatý řez v levo</string>
-    <string name="buttonfirst_navigation">Hlas</string>
-    <string name="buttonsecond_navigation">Zvuk</string>
-    <string name="buttonthird_navigation">Vibrace</string>
-    <string name="buttonfirst_face">Pasovka</string>
-    <string name="buttonsecond_face">Polocelek</string>
-    <string name="buttonthird_face">Volná bez změny velikosti obličeje</string>
-    <string name="final_delete">smazat</string>
+    <string name="buttonfirst_position">Golden cut right</string>
+    <string name="buttonsecond_position">Center</string>
+    <string name="buttonthird_position">Golden cut left</string>
+    <string name="buttonfirst_navigation">Voice</string>
+    <string name="buttonsecond_navigation">Sound</string>
+    <string name="buttonthird_navigation">Vibrate</string>
+    <string name="buttonfirst_face">Profile</string>
+    <string name="buttonsecond_face">Half</string>
+    <string name="buttonthird_face">Freedom mode</string>
+    <string name="final_delete">Delete</string>
     <string name="final_facebook">facebook</string>
-    <string name="final_sdílet">sdílet</string>
+    <string name="final_sdílet">Share</string>
     <string name="final_twitter">twitter</string>
     <string name="final_instagram">instagram</string>
-    <string name="NahledBtbDesription">nahled</string>
-    <string name="previewImgDescription">Velky nahled</string>
-    <string name="PreviewActivityLable">nahled</string>
-    <string name="CameraActivityLable">Fotoaparat</string>
-    <string name="FinalActivityLabel">Vyber cinnost</string>
-    <string name="FaceActivityLabel">Druh fotky</string>
-    <string name="NavigationActivityLabel">Navigace</string>
-    <string name="PositionActivityLabel">Zarovnání obličeje</string>
+    <string name="NahledBtbDesription">Preview</string>
+    <string name="previewImgDescription">Big preview</string>
+    <string name="PreviewActivityLable">Preview</string>
+    <string name="CameraActivityLable">Camera</string>
+    <string name="FinalActivityLabel">Choose activity</string>
+    <string name="FaceActivityLabel">Kind of photo</string>
+    <string name="NavigationActivityLabel">Navigation</string>
+    <string name="PositionActivityLabel">Face alignment</string>
 </resources>

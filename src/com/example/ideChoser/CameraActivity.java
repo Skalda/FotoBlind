@@ -5,11 +5,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
+import android.media.AudioManager;
+import android.media.ToneGenerator;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Vibrator;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.Surface;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Toast;
@@ -58,6 +63,10 @@ public class CameraActivity extends Activity {
     };
     private Camera mCamera;
 
+    private TextToSpeech mTTS;
+    private ToneGenerator toneG;
+    private Vibrator myVibrator;
+
     /**
      * Create a file Uri for saving an image or video
      */
@@ -95,6 +104,7 @@ public class CameraActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.camera);
 
         boolean initialized = initialize(this);
@@ -102,6 +112,10 @@ public class CameraActivity extends Activity {
         if (!initialized) {
             this.finish();
         }
+
+        mTTS = new TextToSpeech(this, null);
+        toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 50);
+        myVibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
         // Create our com.example.ideChoser.Preview view and set it as the content of our activity.
         FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
@@ -171,13 +185,15 @@ public class CameraActivity extends Activity {
         }
         camParameters.setPictureSize(max.width, max.height);
         mCamera.setParameters(camParameters);
+        mCamera.setFaceDetectionListener(new MyFaceDetectionListener(mTTS,toneG,myVibrator));
     }
 
     @Override
     protected void onStop() {
         System.out.println("onStop");
         super.onStop();
-
+        mTTS.shutdown();
+        mCamera.stopFaceDetection();
         CameraSingleton.ReleaseInstance();
     }
 
